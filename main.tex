@@ -1,0 +1,88 @@
+\documentclass[12pt]{jlreq}
+\input{preamble-jp}
+\usepackage{emoji}
+\title{\LaTeX ノート用テンプレート}
+\author{小林健}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+    概要をここにかく. 
+\end{abstract}
+
+\section{emoji の表示}
+\emoji{joy}
+\emoji{+1}
+\emoji{family-man-woman-girl-boy}
+\emoji{woman-and-man-holding-hands-light-skin-tone-medium-dark-skin-tone}
+\emoji{heart}
+\emoji{snowman}
+\section{はじめに}
+研究のメモを取るためのノート作成に使うテンプレートです. 
+必要なパッケージ類はすべてプリアンブルのファイルに入れています. 
+
+\paragraph{定理環境}
+ここではノートを見やすくするため, いくつかの定理環境を設定している.
+
+
+\begin{definition}[素数]
+1 と自分自身以外の約数を持たない自然数を素数という. 
+\end{definition}
+\begin{lemma}
+素数は少ない. 
+\end{lemma}
+\begin{definition}
+1 と自分自身以外の約数を持たない自然数を素数という. 
+\end{definition}
+
+
+\begin{theorem}\label{thm:many}
+素数はたくさんある. 
+\end{theorem}
+
+
+\begin{proof}
+    ここに書くには余白が足りない. 
+\end{proof}
+
+定理を参照する際は\Cref{thm:many}を用いるとよい
+\paragraph{Natbib を使った引用}
+先行研究を引用する際, しばしば著者のスペルを間違えたりすることがある. 
+また複数の文献を同時に引用する際は文献の番号が順番が昇順でソートされていることが望ましいが, 通常の\verb| \cite{}| コマンドを用いる場合参考文献の名前を手動でソートする必要があり煩わしい. 
+このような煩わしさから我々を開放するパッケージが Natbib である.
+Natbib のパッケージを用いると, 著者名を自動で表示してくれたり, 表示する文献番号を自動でソートしてくれたりする.
+
+\begin{itemize}
+    \item \verb|\citet{Boyd2009}| $\to$ \citet{Boyd2009}   (\verb|\citet{}| を用いると著者が自動で表示される)
+    \item \verb|\citet{Kanamori2020}| $\to$ \citet{Kanamori2020}  (3 人以上の場合は et al. も表示される)
+    \item \verb|\citep{Bertsimas2022PCA}| $\to$  \citep{Bertsimas2022PCA} (\verb|\citep{}| を用いると文献番号のみ表示される)
+    \item \verb|\citep{Bertsimas2022PCA,Boyd2009}|$\to$ \citep{Bertsimas2022PCA,Boyd2009}  (BibTexのエントリをカンマでつなげると, 文献番号がまとめて表示される)
+\item \verb|\citep{Boyd2009,Bertsimas2022PCA}| $\to$ \citep{Boyd2009,Bertsimas2022PCA}  (直前の行とエントリの順番が入れ変わっているが, 表示される文献番号は昇順のまま)
+
+\end{itemize}
+
+
+\paragraph{最適化問題の記述}
+\begin{mini!}
+    {\bm w,x}          % 決定変数
+    {f(w)+ R(w+6x) \label{eq:prb-obj}} % 目的関数
+    {\label{prb}}  % 問題のラベル
+    {J(w^*, x^*)=} % minの左側
+    \addConstraint{g(w)}{=0  \protect \label{eq:constr1}} % 1つ目の制約
+    \addConstraint{n(w)}{= 6 \protect\label{eq:constr2}} % 2つ目の制約
+    \addConstraint{L(w)}{=Kw\quad}{k =0 ,\ldots ,N -1 \protect\label{eq:constr3}} % 3つ目の制約
+    \addConstraint{h(x)}{=0}{k =0 ,\ldots ,N -1. 
+\protect \label{eq:constr4}} % 4つ目の制約
+\end{mini!}
+
+\cref{eq:constr1} は...を表す. 
+\cref{prb} \cref{eq:prb-obj}
+
+LuaLaTexの場合，和英混合の場合のスペーシングはどうなるだろうか．
+東京工業大学Science Tokyo
+
+半正定値行列$A$の定義は以下の通りである．
+\bibliographystyle{abbrvnat-nourl}
+\bibliography{bibliography}
+\end{document}

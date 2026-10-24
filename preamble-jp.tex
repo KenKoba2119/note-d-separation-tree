@@ -1,0 +1,125 @@
+% パッケージの読み込み
+\usepackage{graphicx}
+\usepackage{mathtools} % 含まれる amsmath
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mleftright}
+\usepackage{optidef}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,positioning}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{framed,color}
+
+\usepackage{listings}
+
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{comment}
+\usepackage{booktabs}
+\usepackage{ascmac}
+\usepackage{url}
+\usepackage{lscape}
+\usepackage[normalem]{ulem}
+\usepackage[hypertexnames=false]{hyperref}
+\hypersetup{% hyperrefオプションリスト
+ bookmarksopen=true,%
+ colorlinks=true,%
+ linkcolor=blue,
+ citecolor=blue,
+}
+\usepackage{cleveref}
+%\usepackage{autonum}
+\usepackage[numbers,sort]{natbib}
+
+% アルゴリズム関連のパッケージ
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+% カラーの定義
+\definecolor{shadecolor}{gray}{0.90}
+
+% cleveref の設定
+\crefformat{chapter}{第#2#1#3章}
+\crefformat{section}{#2#1#3節}
+\crefformat{subsection}{#2#1#3節}
+\crefname{figure}{図}{図}
+\crefname{table}{表}{表}
+\crefname{theorem}{定理}{定理}
+\crefname{equation}{式}{式}
+\crefname{appendix}{付録}{付録}
+\newcommand{\crefrangeconjunction}{--}
+\newcommand{\crefpairconjunction}{, }
+\newcommand{\crefmiddleconjunction}{, }
+\newcommand{\creflastconjunction}{, }
+
+% 定理環境の設定
+\theoremstyle{definition}
+\renewcommand{\proofname}{\normalfont{\uline{証明}}}
+
+% ペアとなる区切り記号の定義
+\DeclarePairedDelimiter{\paren}{\lparen}{\rparen}
+\DeclarePairedDelimiter{\tuple}{\lparen}{\rparen}
+\DeclarePairedDelimiter{\sqbra}{\lbrack}{\rbrack}
+\DeclarePairedDelimiter{\set}{\lbrace}{\rbrace}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\card}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiterX{\pgiven}[2]{\lparen}{\rparen}{#1\,\delimsize\vert\,#2}
+\DeclarePairedDelimiterX{\qgiven}[2]{\lbrack}{\rbrack}{#1\,\delimsize\vert\,#2}
+
+% 数学演算子の定義
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Int}{int}
+\DeclareMathOperator{\ke}{Ker}
+\DeclareMathOperator*{\minimize}{minimize}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Diag}{Diag}
+\DeclareMathOperator{\subjectto}{subject~to}
+
+% アルゴリズム関連の設定
+\newcommand{\Step}[1]{\algrenewcommand{\alglinenumber}[1]{\textbf{Step ##1:} } #1}
+
+
+
+% 左線付き環境の定義 (needs framed, color)
+\newenvironment{myleftbar}[1]{
+  \def\FrameCommand{{\color{#1}\vrule width 1.5pt }\hspace{10pt}}
+  \MakeFramed {\advance\hsize-\width \FrameRestore}}
+{\endMakeFramed\par}
+
+% 定理環境の基礎となるカウンターを定義
+\newtheorem{mainthm}{定理}
+
+
+% 定理環境の定義（左線付き）
+
+% その他の定理環境の定義（共通の番号付け）
+\theoremstyle{definition}
+\newtheorem{assumption}[mainthm]{仮定}
+\newtheorem{theorem}{定理}
+\newtheorem{proposition}[mainthm]{命題}
+\newtheorem{definition}[mainthm]{定義}
+\newtheorem{lemma}[mainthm]{補題}
+\newtheorem{remark}[mainthm]{注意}
+\newtheorem{corollary}[mainthm]{系}
+\newtheorem{example}[mainthm]{例}
+\newtheorem{conjecture}[mainthm]{予想}
+
+% tcolorbox の環境設定
+
+
+
+
+
+% ベクトルの表記
+\newcommand{\bvec}[1]{\boldsymbol{#1}}
+
+% その他のコマンド
+\newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}}
+\newcommand{\st}{\mathrm{s.t.}}

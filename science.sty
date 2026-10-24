@@ -1,0 +1,71 @@
+\ProvidesPackage{beamer_settings}
+
+\usepackage{graphicx}
+\usepackage{mlmodern}  % 太いComputer Modern
+\usepackage[deluxe,uplatex]{otf} 
+\usepackage{pxjahyper} 
+\renewcommand{\familydefault}{\sfdefault}  % 英文をサンセリフ体に
+\renewcommand{\kanjifamilydefault}{\gtdefault}  % 日本語をゴシック体に
+
+% フォントテーマ設定
+\usefonttheme{professionalfonts}
+\usefonttheme{structurebold}
+\setbeamerfont{alerted text}{series=\bfseries}
+\setbeamerfont{section in toc}{series=\mdseries}
+\setbeamerfont{frametitle}{size=\Large}
+\setbeamerfont{title}{size=\LARGE}
+\setbeamerfont{subtitle}{size=\large}
+\setbeamerfont{author}{size=\Large}
+\setbeamerfont{institute}{size=\normalsize}
+\setbeamerfont{date}{size=\normalsize}
+
+% Babel (日本語)
+\uselanguage{japanese}
+\languagepath{japanese}
+\deftranslation[to=japanese]{Theorem}{定理}
+\deftranslation[to=japanese]{Lemma}{補題}
+\deftranslation[to=japanese]{Example}{例}
+\deftranslation[to=japanese]{Examples}{例}
+\deftranslation[to=japanese]{Definition}{定義}
+\deftranslation[to=japanese]{Definitions}{定義}
+\deftranslation[to=japanese]{Problem}{問題}
+\deftranslation[to=japanese]{Solution}{解}
+\deftranslation[to=japanese]{Fact}{事実}
+\deftranslation[to=japanese]{Proof}{証明}
+\def\proofname{証明}
+
+% Beamer色設定
+\definecolor{SciTokyoBlue}{RGB}{63,59,159}
+\definecolor{SciTokyoRed}{RGB}{154,0,121}
+\definecolor{SciTokyoGray}{RGB}{92, 92, 91}
+\definecolor{SciTokyoBlack}{RGB}{60, 60, 60}
+\setbeamercolor{normal text}{fg=SciTokyoBlack}
+\setbeamercolor{structure}{fg=SciTokyoBlue}
+\setbeamercolor{alerted text}{fg=SciTokyoRed}
+\setbeamercolor{block title}{fg=white, bg=SciTokyoBlue}
+\setbeamercolor{block body}{fg=SciTokyoBlack, bg=SciTokyoBlue!10}
+\setbeamercolor{block title example}{fg=white, bg=SciTokyoGray}
+\setbeamercolor{block body example}{fg=SciTokyoBlack, bg=SciTokyoGray!12}
+\setbeamercolor{block title alerted}{fg=white, bg=SciTokyoRed}
+\setbeamercolor{block body alerted}{fg=SciTokyoBlack, bg=SciTokyoRed!12}
+\AtBeginEnvironment{exampleblock}{\setbeamercolor{itemize item}{fg=SciTokyoGray}}
+\setbeamercolor{page number in head/foot}{fg=SciTokyoBlack}
+
+% フラットデザイン
+\setbeamertemplate{blocks}[rounded]
+\useinnertheme{circles}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+% タイトルページ
+\setbeamertemplate{title page}{%
+    \vspace{70pt}
+    {\usebeamerfont{title} \usebeamercolor[fg]{title} \inserttitle \par}
+    {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle} \vspace{10pt} \insertsubtitle \par}
+    \vspace{25pt}
+    \usebeamerfont{author}\insertauthor\par
+    \usebeamerfont{institute}\insertinstitute \par
+    \vspace{25pt}
+    \usebeamerfont{date}\insertdate\par
+    \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic
+}
